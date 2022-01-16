@@ -1,0 +1,55 @@
+body{
+    margin: 0px;
+    overflow-y: scroll;
+}
+.navbar{
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Satisfy', cursive;
+    font-family: 'Varela', sans-serif;
+    font-family: 'Varela Round', sans-serif;
+}
+.container{
+    padding:10% 30% 10% 30%;
+    align-self: center;
+    align-items: center;
+}
+/* .row:hover{
+    background-color: rgb(27, 158, 108);
+} */
+.middle{
+    text-align: center;
+    align-self: center;
+    align-items: center;
+}
+.full-width{
+    width:100%;
+}
+.lower{
+    margin-bottom: 12px;
+}
+#save-btn{
+    background-color:rgb(27, 158, 108);
+    height: 30px;
+}
+.table-heading{
+    background-color: grey;
+}
+.row{
+    background-color:honeydew;
+    overflow-x: hidden;
+}
+.row:hover{
+    background-color: rgb(34, 214, 145);
+}
+.container-table{
+    width: 100%;
+}
+.btn-edit{
+    float: left;
+    margin-left: 4px;
+}
+.btn-del{
+    float: right;
+    margin-right: 4px;
+    margin-left: 4px;
+}

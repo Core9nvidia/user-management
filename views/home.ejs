@@ -1,0 +1,79 @@
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/nav.ejs') %>
+    <div class="container">
+        <div  style="float: left;">
+            <!-- class="box-nav d-flex justify-between" -->
+            <a href="/add-user" class="border-shadow">
+                <button class="text-gradient">New User <i class="fas fa-user"></i></button>
+            </a>
+        </div><br><br>
+        <div class="container-table" style="font-size:larger;">
+                <% if(users.length > 0 ){ %>
+                    <table style="width: 100%;">
+                            <tr class="table-heading">
+                                <th style="width: 5%;">Id</th>
+                                <th style="width: 30%;">Name</th>
+                                <th style="width: 35%;">Email</th>
+                                <th style="width: 10%;">Gender</th>
+                                <th style="width: 10%;">Status</th>
+                                <th style="width: 10%;">Action</th>
+                            </tr>
+                        
+                    <% for(var i=0;i< users.length ; i++){ %>
+                                <tr class="row">
+                                    <td><%= i + 1 %></td>
+                                    <td><%= users[i].name %></td>
+                                    <td><%= users[i].email %></td>
+                                    <td><%= users[i].gender %></td>
+                                    <td><%= users[i].status %></td>
+                                    <td>
+                                        <a href="/update-user/<%= users[i]._id%>" class="btn-edit border-shadow update">
+                                            <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                                        </a>
+                                        <a onclick="del('<%= users[i]._id %>')" class="btn-del border-shadow delete" data-id=<%= users[i]._id%> >
+                                            <span class="text-gradient"><i class="fas fa-times"></i></span>
+                                        </a>
+                                    </td>
+                                </tr>
+                        
+                        <% } %>
+                    </table>
+                    <% }else{ %>
+                        <h3>No user!!  <a href="/add-user">Add one!</a></h3>
+                <% } %>
+              
+        </div>
+    </div>
+      <script>
+        
+        // const pp=document.getElementById('roha');
+        // pp.addEventListener("click",()=>{
+        //     pp.innerHTML="yup";
+        //     var val=$('#roha').attr('id');
+        //     pp.innerHTML=val;
+        //     console.log(val);
+        // })
+
+
+        // delete request
+        console.log("call");
+        var me="rohit "+"yadav";
+        console.log(me);
+        function del(id){
+            var url="/delete-user/"+id;
+            fetch(url,{method:"DELETE"})
+                .then((response)=>response.json())
+                .then((data)=>{
+                    window.location.href=data.redirect;
+                })
+                .catch((err)=>console.log(err));
+                //console.log("working");
+        }
+        
+      </script>
+      
+
+</body>
+</html>
