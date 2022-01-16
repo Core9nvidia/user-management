@@ -4,11 +4,12 @@ const app=express();
 const User=require('./models/userModel');
 
 const url="mongodb+srv://roha:roha@nodetut.hijdw.mongodb.net/myDB?retryWrites=true&w=majority";
+const port = process.env.PORT || 3000;
 mongoose.connect(url)
-    .then((result)=>app.listen(3000))
+    .then((result)=>app.listen(port))
     .catch(err=>console.log(err));
 
-
+//app.listen(3000);
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('public'));
 app.set('view engine','ejs');

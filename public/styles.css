@@ -1,6 +1,9 @@
 body{
     margin: 0px;
     overflow-y: scroll;
+    /* background-image: url('pic.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; */
 }
 .navbar{
     font-family: 'Open Sans', sans-serif;
